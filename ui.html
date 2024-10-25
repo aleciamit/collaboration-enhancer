@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Status message -->
+        <div id="status-message" class="status-message"></div>
+
+        <!-- Instructions -->
+        <div class="instructions">
+            💡 To add a comment: 
+            <ol>
+                <li>Select an element (optional)</li>
+                <li>Choose a comment type</li>
+                <li>Type your message</li>
+                <li>Click "Add Comment"</li>
+            </ol>
+        </div>
+
+      <!-- Input section -->
+<div class="input-section">
+  <select class="role-select" id="comment-role">
+      <option value="question">Question</option>
+      <option value="feedback">Feedback</option>
+      <option value="suggestion">Suggestion</option>
+  </select>
+  <textarea 
+      id="new-comment" 
+      class="comment-input" 
+      placeholder="Type your comment here..."
+  ></textarea>
+  <div class="character-count"></div>
+  <button id="create-comment" class="submit-button">
+      <span class="button-text">Add Comment</span>
+      <div class="loading-spinner" style="display: none;"></div>
+  </button>
+</div>
+
+        <!-- Comments list -->
+        <div id="comments-list" class="comments-list"></div>
+    </div>
+
+    <script>
+        // Handle messages from the plugin code
+        window.onmessage = (event) => {
+            const msg = event.data.pluginMessage;
+            const statusDiv = document.getElementById('status-message');
+            
+            if (msg.type === 'update-comments') {
+                console.log('Received comments update:', msg.comments);
+                displayComments(msg.comments);
+            } else if (msg.type === 'error') {
+                console.error('Received error message:', msg.message);
+                statusDiv.className = 'status-message error';
+                statusDiv.textContent = `❌ ${msg.message}`;
+                setTimeout(() => {
+                    statusDiv.textContent = '';
+                }, 3000);
+            }
+        };
+        
+        function displayComments(comments) {
+            console.log('Displaying comments:', comments);
+            const container = document.getElementById('comments-list');
+            container.innerHTML = '';
+            
+            if (!Array.isArray(comments)) {
+                console.error('Comments is not an array:', comments);
+                return;
+            }
+            
+            comments.forEach(comment => {
+                const div = document.createElement('div');
+                div.className = `comment-item ${comment.role}`;
+                
+                div.innerHTML = `
+                    <div class="comment-header">
+                        <span class="role-badge">${comment.role}</span>
+                        <span class="user-name">${comment.user}</span>
+                        <span class="comment-date">${comment.createdAt}</span>
+                    </div>
+                    <div class="comment-message">${comment.message}</div>
+                    <button class="delete-button">Delete</button>
+                `;
+                
+                const deleteButton = div.querySelector('.delete-button');
+                deleteButton.onclick = () => {
+                    parent.postMessage({ 
+                        pluginMessage: { 
+                            type: 'delete-comment', 
+                            id: comment.id
+                        }
+                    }, '*');
+                };
+                
+                container.appendChild(div);
+            });
+        }
+        
+        // Add comment handler
+        document.getElementById('create-comment').onclick = () => {
+            const text = document.getElementById('new-comment').value;
+            const role = document.getElementById('comment-role').value;
+            
+            if (text.trim()) {
+                console.log('Sending add-comment message:', { text, role });  // Add logging
+                setLoading(true);
+                parent.postMessage({ 
+                    pluginMessage: { 
+                        type: 'add-comment',
+                        text,
+                        role
+                    }
+                }, '*');
+                document.getElementById('new-comment').value = '';
+                setTimeout(() => setLoading(false), 1000);
+            }
+        };
+        
+        // Character counter setup
+        const textarea = document.getElementById('new-comment');
+        const charCount = document.querySelector('.character-count');
+        const MAX_LENGTH = 500;
+        
+        function updateCharacterCount() {
+            const remaining = MAX_LENGTH - textarea.value.length;
+            charCount.textContent = `${remaining} characters remaining`;
+            charCount.className = 'character-count' + 
+                (remaining < 50 ? ' near-limit' : '') + 
+                (remaining < 10 ? ' at-limit' : '');
+        }
+        
+        textarea.addEventListener('input', updateCharacterCount);
+        updateCharacterCount();
+        
+        // Loading state handler
+        function setLoading(isLoading) {
+            const button = document.getElementById('create-comment');
+            const spinner = button.querySelector('.loading-spinner');
+            const text = button.querySelector('.button-text');
+            
+            button.disabled = isLoading;
+            spinner.style.display = isLoading ? 'block' : 'none';
+            text.textContent = isLoading ? 'Adding...' : 'Add Comment';
+        }
+        
+        // Initial load of comments
+        parent.postMessage({ 
+            pluginMessage: { 
+                type: 'get-comments'
+            }
+        }, '*');
+        </script>
+</body>
+</html>
