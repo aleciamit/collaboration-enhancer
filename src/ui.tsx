@@ -1,4 +1,3 @@
-import './styles/global.css';
 import FigmaCommentsPlugin from './components/CommentInput/FigmaCommentsPlugin';
 
 export function MainUI() {

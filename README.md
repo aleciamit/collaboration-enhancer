@@ -1,6 +1,3 @@
-
-
-=======
 # Figma Comments Plugin
 
 A sophisticated commenting system for Figma that enhances team collaboration with smart features and an intuitive interface.
@@ -73,4 +70,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## Author
 
 Created by Alecia Mitchell
-Create README.md
+

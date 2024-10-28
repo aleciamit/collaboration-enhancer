@@ -1,10 +1,11 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import './styles/global.css'; // Import your global styles
-import { MainUI } from './ui'; // Import your MainUI component
+import './index.css'; // Import your global styles
+import App from './App'; // Import the App component, no .tsx extension
 
+// Render the App component inside StrictMode
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <MainUI /> {/* Render MainUI instead of App */}
+    <App />
   </StrictMode>
 );
