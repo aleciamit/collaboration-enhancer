@@ -2,7 +2,7 @@
   "name": "Collaboration Enhancer",
   "id": "collaboration-enhancer",
   "api": "1.0.0",
-  "main": "code.js",
+  "main": "code.ts",   
   "ui": "ui.html",
   "editorType": ["figma"],
   "permissions": [
