@@ -3,12 +3,12 @@ import react from '@vitejs/plugin-react';
 import tailwindcss from 'tailwindcss';
 import autoprefixer from 'autoprefixer';
 
-// https://vite.dev/config/
+// Vite Configuration
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react()], // Plugin for React
   css: {
     postcss: {
-      plugins: [tailwindcss(), autoprefixer()],
+      plugins: [tailwindcss(), autoprefixer()], // PostCSS with Tailwind & Autoprefixer
     },
   },
 });

@@ -82,11 +82,11 @@ const FigmaCommentsPlugin: React.FC<FigmaCommentsPluginProps> = ({
             onChange={(e) => setCommentType(e.target.value)}
             className="w-full p-2 pl-3 pr-10 bg-gray-50 border border-gray-200 rounded hover:border-gray-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 appearance-none"
           >
-            {Object.entries(commentTypes).map(([key, { label }]) => (
-              <option key={key} value={key}>
-                {label}
-              </option>
-            ))}
+           {Object.entries(commentTypes).map(([key, value]: [string, { label: string }]) => (
+  <option key={key} value={key}>
+    {value.label}
+  </option>
+))}
           </select>
           <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" size={16} />
         </div>
