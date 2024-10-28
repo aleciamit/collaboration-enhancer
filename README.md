@@ -1,50 +1,72 @@
-# React + TypeScript + Vite
+# Figma Comments Plugin
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sophisticated commenting system for Figma that enhances team collaboration with smart features and an intuitive interface.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 💬 **Smart Comment Types**
+  - Questions: For design clarifications
+  - Feedback: For specific design critiques
+  - Suggestions: For proposing improvements
 
-## Expanding the ESLint configuration
+- 🎯 **Element-Specific Comments**
+  - Attach comments directly to design elements
+  - Visual connectors show comment relationships
+  - Smart positioning prevents overlap
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- 🎨 **Enhanced UI**
+  - Color-coded comment categories
+  - Clean, modern interface
+  - Smooth animations and transitions
+  - Intuitive comment management
 
-- Configure the top-level `parserOptions` property like this:
+- 📱 **Smart Features**
+  - Comment grouping by type and element
+  - Filtering and search capabilities
+  - Real-time updates
+  - Character counter
+  - Loading states
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Installation
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+1. Clone this repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Build the plugin:
+   ```bash
+   npm run build
+   ```
+4. Import the plugin into Figma:
+   - Open Figma
+   - Go to Plugins > Development > Import plugin from manifest
+   - Select the manifest.json file from this repository
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Development
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+This plugin is built with:
+- TypeScript for type safety
+- React for UI components (coming soon)
+- Modern CSS for styling
+- Figma Plugin API
+
+To start development:
+1. Clone the repository
+2. Install dependencies
+3. Run watch mode:
+   ```bash
+   npm run watch
+   ```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+[MIT License](LICENSE)
+
+## Author
+
+Created by Alecia Mitchell
