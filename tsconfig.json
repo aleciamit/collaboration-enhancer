@@ -1,23 +1,7 @@
 {
-  "compilerOptions": {
-    "target": "es6",
-    "module": "es6",
-    "lib": ["es6", "dom"],
-    "moduleResolution": "node",
-    "typeRoots": ["./node_modules/@figma"],
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "noImplicitAny": false,
-    "types": ["@figma/plugin-typings"],
-    "baseUrl": "./src",
-    "paths": {
-      "*": ["*"]
-    },
-    "jsx": "react",
-    "allowJs": true,
-    "outDir": "./dist"
-  },
-  "include": ["src/**/*", "code.ts", "globals.d.ts"],
-  "exclude": ["node_modules"]
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
 }

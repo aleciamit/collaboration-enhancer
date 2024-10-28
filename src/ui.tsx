@@ -1,5 +1,5 @@
 import React from 'react';
-import CommentInput from './components/CommentInput/FigmaCommentsPlugin';
+import FigmaCommentsPlugin from './components/CommentInput/FigmaCommentsPlugin';
 
 export function MainUI() {
   // This function will handle new comments
@@ -12,7 +12,7 @@ export function MainUI() {
   return (
     <div className="main-container">
       <h1>Comments</h1>
-      <CommentInput 
+      <FigmaCommentsPlugin 
         onSubmit={handleNewComment}
         placeholder="What's on your mind?"
       />
