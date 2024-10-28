@@ -1,4 +1,4 @@
-import React from 'react';
+// No need to import React anymore in React 17+ with the new JSX transform!
 import FigmaCommentsPlugin from './components/CommentInput/FigmaCommentsPlugin';
 
 export function MainUI() {
@@ -12,7 +12,7 @@ export function MainUI() {
   return (
     <div className="main-container">
       <h1>Comments</h1>
-      <FigmaCommentsPlugin 
+      <FigmaCommentsPlugin
         onSubmit={handleNewComment}
         placeholder="What's on your mind?"
       />
