@@ -1,0 +1,58 @@
+/* src/components/CommentInput/styles.css */
+.comment-input-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .comment-textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    min-height: 80px;
+    font-family: inherit;
+  }
+  
+  .comment-textarea:focus {
+    outline: none;
+    border-color: #0066cc;
+    box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+  }
+  
+  .comment-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .char-count {
+    color: #666;
+    font-size: 0.875rem;
+  }
+  
+  .submit-button {
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-weight: 500;
+  }
+  
+  .submit-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .submit-button:hover:not(:disabled) {
+    background-color: #0052a3;
+  }

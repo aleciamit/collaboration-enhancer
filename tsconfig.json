@@ -9,9 +9,15 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "noImplicitAny": false,
-    "types": ["@figma/plugin-typings"]
+    "types": ["@figma/plugin-typings"],
+    "baseUrl": "./src",
+    "paths": {
+      "*": ["*"]
+    },
+    "jsx": "react",
+    "allowJs": true,
+    "outDir": "./dist"
   },
-  "include": ["code.ts", "globals.d.ts"],
+  "include": ["src/**/*", "code.ts", "globals.d.ts"],
   "exclude": ["node_modules"]
 }
-
