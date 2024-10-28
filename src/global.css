@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Reset some browser defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Apply a default font */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Styling for the main container */
+.main-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+/* Comment badge styling */
+.comment-badge {
+  padding: 0.5rem;
+  border-radius: 8px;
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+
+/* Custom style for dropdown chevron */
+.select-chevron {
+  @apply absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none;
+}

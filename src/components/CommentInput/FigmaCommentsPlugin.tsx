@@ -82,7 +82,7 @@ const FigmaCommentsPlugin: React.FC<FigmaCommentsPluginProps> = ({
             onChange={(e) => setCommentType(e.target.value)}
             className="w-full p-2 pl-3 pr-10 bg-gray-50 border border-gray-200 rounded hover:border-gray-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 appearance-none"
           >
-            {Object.entries(commentTypes).map(([key, { label, color }]) => (
+            {Object.entries(commentTypes).map(([key, { label }]) => (
               <option key={key} value={key}>
                 {label}
               </option>
