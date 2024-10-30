@@ -2,13 +2,14 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
-    "lib": ["es2015", "dom"],
+    "lib": ["es2017", "dom"], // Update this line
     "typeRoots": ["./node_modules/@types", "./node_modules/@figma/plugin-typings"],
     "types": ["@figma/plugin-typings"],
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react-jsx"
   },
   "include": ["src"]
 }

@@ -1,3 +1,4 @@
+import React from 'react';
 import FigmaCommentsPlugin from './components/CommentInput/FigmaCommentsPlugin';
 
 export function MainUI() {

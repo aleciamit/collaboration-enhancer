@@ -1,4 +1,3 @@
-// src/components/CommentInput/FigmaCommentsPlugin.tsx
 import React, { useState } from 'react';
 import { ChevronDown, Filter, Search } from 'lucide-react';
 
@@ -25,7 +24,7 @@ const FigmaCommentsPlugin: React.FC<FigmaCommentsPluginProps> = ({
     }
   };
 
-  const commentTypes = {
+  const commentTypes: { [key: string]: { label: string; color: string } } = {
     QUESTION: { label: 'Question', color: '#2563eb' },
     FEEDBACK: { label: 'Feedback', color: '#16a34a' },
     SUGGESTION: { label: 'Suggestion', color: '#9333ea' }
@@ -77,18 +76,18 @@ const FigmaCommentsPlugin: React.FC<FigmaCommentsPluginProps> = ({
           What type of comment is this?
         </label>
         <div className="relative">
-        <select 
-  value={commentType}
-  onChange={(e) => setCommentType(e.target.value)}
-  className="w-full p-2 pl-3 pr-10 bg-gray-50 border border-gray-200 rounded hover:border-gray-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 appearance-none"
->
-  {Object.entries(commentTypes).map(([key, { label, color }]) => (
-    <option key={key} value={key} className="flex items-center gap-2">
-      <span className="w-3 h-3 rounded-full inline-block" style={{ backgroundColor: color }}></span>
-      {label}
-    </option>
-  ))}
-</select>
+          <select 
+            value={commentType}
+            onChange={(e) => setCommentType(e.target.value)}
+            className="w-full p-2 pl-3 pr-10 bg-gray-50 border border-gray-200 rounded hover:border-gray-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 appearance-none"
+          >
+            {Object.entries(commentTypes).map(([key, { label, color }]) => (
+              <option key={key} value={key} className="flex items-center gap-2">
+                <span className="w-3 h-3 rounded-full inline-block" style={{ backgroundColor: color }}></span>
+                {label}
+              </option>
+            ))}
+          </select>
           <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" size={16} />
         </div>
       </div>
