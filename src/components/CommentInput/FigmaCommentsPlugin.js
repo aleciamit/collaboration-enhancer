@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var jsx_runtime_1 = require("react/jsx-runtime");
-// src/components/CommentInput/FigmaCommentsPlugin.tsx
 var react_1 = require("react");
 var lucide_react_1 = require("lucide-react");
 var FigmaCommentsPlugin = function (_a) {

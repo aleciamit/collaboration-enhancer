@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
-    "lib": ["es2017", "dom"], // Update this line
+    "lib": ["es2017", "dom"],
     "typeRoots": ["./node_modules/@types", "./node_modules/@figma/plugin-typings"],
     "types": ["@figma/plugin-typings"],
     "strict": true,
